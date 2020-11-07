@@ -58,6 +58,25 @@ const Room = (props) => {
         const peer = new Peer({
             initiator: true,
             trickle: false,
+             config: {
+              iceServers: [
+                     {
+                        urls:"stun:numb.viagenie.ca:443",
+                        username:username_stun,
+                        credential:passsword_stun
+                    },
+                    {
+                        urls:"turn:numb.viagenie.ca:80",
+                        username:username_stun,
+                        credential:passsword_stun
+                    },
+                     {
+                        urls:"turn:numb.viagenie.ca:443?transport=tcp",
+                        username:username_stun,
+                        credential:passsword_stun
+                    }
+                ],
+            },
             stream,
         });
 
@@ -73,6 +92,25 @@ const Room = (props) => {
         const peer = new Peer({
             initiator: false,
             trickle: false,
+            config: {
+            iceServers: [
+                     {
+                        urls:"stun:numb.viagenie.ca:443",
+                        username:username_stun,
+                        credential:passsword_stun
+                    },
+                    {
+                        urls:"turn:numb.viagenie.ca:80",
+                        username:username_stun,
+                        credential:passsword_stun
+                    },
+                     {
+                        urls:"turn:numb.viagenie.ca:443?transport=tcp",
+                        username:username_stun,
+                        credential:passsword_stun
+                    }
+                ],
+            },
             stream,
         })
 
